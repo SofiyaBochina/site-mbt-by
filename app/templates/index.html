@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>Мастерская Бытовой Техники</title>
+</head>
+<body>
+    {% extends "header.html" %}
+    {% block content %}
+    <main class="main">
+        <li class="goods">
+            {% for good in goods %}
+                <ul class="goods__item">
+                    <a href="#" class="item__card">
+                        <img class="card__image" src="{{ good.image }}" alt="Фотография стиральной машины">
+                        <div class="card__info">
+                            <h2 class="card__title underline">{{ good.title }}</h2>
+                            <p class="card__price">Стоимость от {{ good.price }}</p>
+                        </div>
+                    </a>
+                </ul>
+            {% endfor %}
+        </li>
+    </main>
+    {% endblock content %}
+</body>
+</html>

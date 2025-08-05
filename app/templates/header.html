@@ -1,0 +1,63 @@
+<header class="header">
+    <h1 class="header__title">Мастерская Бытовой Техники</h1>
+    <address class="header__contacts">
+        <ul class="contacts__links list-row">
+            <li>
+                <a href='http://t.me/FixTechnik'>
+                    <img src="{{ url_for('static', filename='images/telegram-icon.svg') }}">
+                </a>
+            </li>
+            <li>
+                <a href='viber://add?number=375291435598/'>
+                    <img src="{{ url_for('static', filename='images/viber-icon.svg') }}">
+                </a>
+            </li>
+            <li>
+                <a href='https://wa.me/375297764031'>
+                    <img src="{{ url_for('static', filename='images/whatsapp-icon.svg') }}">
+                </a>
+            </li>
+        </ul>
+        <ul class="contacts__phones list-row">
+            <li><a href="tel:+375291435598">+375 29 143 55 98</a></li>
+            <li><a href="tel:+375297764031">+375 29 776 40 31</a></li>
+        </ul>
+    </address>
+</header>
+{% block content %}
+{% endblock content %}
+<footer class="footer">
+    <address class="footer__contacts">
+        <div class="contacts__details">
+            <div class="details__info">
+                <p>Мастерская Бытовой Техники</p>
+                <p>с 9:00 до 21:00</p>
+                <p>Без выходных</p>
+            </div>
+            <p>Республика Беларусь 2025</p>
+        </div>
+        <div class="contacts__combined">
+            <ul class="contacts__links list-row">
+                <li>
+                    <a href='http://t.me/FixTechnik'>
+                        <img src="{{ url_for('static', filename='images/telegram-icon.svg') }}">
+                    </a>
+                </li>
+                <li>
+                    <a href='viber://add?number=375291435598/'>
+                        <img src="{{ url_for('static', filename='images/viber-icon.svg') }}">
+                    </a>
+                </li>
+                <li>
+                    <a href='https://wa.me/375297764031'>
+                        <img src="{{ url_for('static', filename='images/whatsapp-icon.svg') }}">
+                    </a>
+                </li>
+            </ul>
+            <ul class="contacts__phones list-row">
+                <li><a href="tel:+375291435598">+375 29 143 55 98</a></li>
+                <li><a href="tel:+375297764031">+375 29 776 40 31</a></li>
+            </ul>
+        </div>
+    </address>
+</footer>
