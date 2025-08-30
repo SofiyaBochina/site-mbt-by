@@ -1,36 +1,40 @@
 <header class="header">
-    <h1 class="header__title">Мастерская Бытовой Техники</h1>
-    <address class="header__contacts">
-        <ul class="contacts__links list-row">
-            <li>
-                <a href='http://t.me/FixTechnik'>
-                    <img src="{{ url_for('static', filename='images/telegram-icon.svg') }}">
-                </a>
-            </li>
-            <li>
-                <a href='viber://add?number=375291435598/'>
-                    <img src="{{ url_for('static', filename='images/viber-icon.svg') }}">
-                </a>
-            </li>
-            <li>
-                <a href='https://wa.me/375297764031'>
-                    <img src="{{ url_for('static', filename='images/whatsapp-icon.svg') }}">
-                </a>
-            </li>
-        </ul>
-        <ul class="contacts__phones list-row">
-            <li><a href="tel:+375291435598">+375 29 143 55 98</a></li>
-            <li><a href="tel:+375297764031">+375 29 776 40 31</a></li>
-        </ul>
-    </address>
+    <div class="header__title">
+        <div class="header__title_content">
+            <div class="header__title_part logo">
+                <img src="{{ url_for('static', filename='images/logo-light.png') }}">
+            </div>
+            <h1 class="header__title_part header__title_text">
+                <p class="flex">Мастерская</p>
+                <p class="inline">Бытовой Техники</p>
+            </h1>
+        </div>
+        <button class="burger" id="burgerBtn">
+            ☰
+        </button>
+        <nav class="header__nav" id="nav">
+            <a class="nav_element" href="#perks">
+                О нас
+            </a>
+            <a class="nav_element" href="#goods">
+                Услуги
+            </a>
+            <a class="nav_element" href="#">
+                Вызов мастера
+            </a>
+            <a class="nav_element" href="#contacts">
+                Контакты
+            </a>
+        </nav>
+    </div>
 </header>
 {% block content %}
 {% endblock content %}
 <footer class="footer">
-    <address class="footer__contacts">
+    <address class="footer__contacts" id="contacts">
         <div class="contacts__details">
             <div class="details__info">
-                <p>Мастерская Бытовой Техники</p>
+                <p class="bold">Мастерская Бытовой Техники</p>
                 <p>с 9:00 до 21:00</p>
                 <p>Без выходных</p>
             </div>

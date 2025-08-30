@@ -2,28 +2,153 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="static/images/favico.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
     <title>Мастерская Бытовой Техники</title>
 </head>
 <body>
     {% extends "header.html" %}
     {% block content %}
     <main class="main">
-        <li class="goods">
-            {% for good in goods %}
-                <ul class="goods__item">
-                    <a href="#" class="item__card">
-                        <img class="card__image" src="{{ good.image }}" alt="Фотография стиральной машины">
-                        <div class="card__info">
-                            <h2 class="card__title underline">{{ good.title }}</h2>
-                            <p class="card__price">Стоимость от {{ good.price }}</p>
+        <section class="section__decor">
+            <div class="decor__content">
+                <h2 class="decor__header">Лучший ремонт бытовой техники в Минске — быстро и надежно</h2>
+                <div class="decor__text">
+                    <p>
+                        Когда техника ломается — мы быстро решим любую проблему. 
+                        <span class="focused">Качественно, по доступной цене и с гарантией.</span> 
+                        Обратитесь — вернем вашу технику к жизни!</p>
+                </div>
+            </div>
+        </section>
+        <section class="section__perks" id="perks">
+            <div class="perks__content">
+                <div class="perk__card">
+                    <div class="perk__image">
+                        <img src="static/images/rocket.svg" alt="Иконка ракеты">
+                    </div>
+                    <div class="perk__info">
+                        <p class="perk__info_title">
+                            Качественный ремонт в кратчайшие сроки
+                        </p>
+                        <p>
+                            Благодаря многолетнему опыту и высокой квалификации, 
+                            мы быстро и надежно восстанавливаем работу вашей бытовой техники, экономя ваше время.
+                        </p>
+                    </div>
+                </div>
+                <div class="perk__card">
+                    <div class="perk__image">
+                        <img src="static/images/handshake.svg" alt="Иконка рукопожатия">
+                    </div>
+                    <div class="perk__info">
+                        <p class="perk__info_title">
+                            Качество с гарантией и вниманием к каждой мелочи
+                        </p>
+                        <p>
+                            Мы предоставляем гарантию на все работы и уделяем особое внимание каждой детали, 
+                            чтобы ваша техника работала идеально и долго служила.
+                        </p>
+                    </div>
+                </div>
+                <div class="perk__card">
+                    <div class="perk__image">
+                        <img src="static/images/trophy.svg" alt="Иконка трофея">
+                    </div>
+                    <div class="perk__info">
+                        <p class="perk__info_title">
+                            Широкий выбор запчастей и персонализированные решения
+                        </p>
+                        <p>
+                            Мы используем только качественные материалы и запчасти, 
+                            подбирая их в соответствии с особенностями вашей техники и вашими пожеланиями.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section__brands">
+            <div class="brands__line top">
+                <div class="line"></div>
+            </div>
+            <div class="brands__content">
+                {% for brand in brands %}
+                <div class="brand__item">
+                    <div class="brand__item_inner {{ brand.name }}">
+                        <img class="brand__item_image {{ brand.type }}" src="{{ brand.image }}">
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="brands__text">
+                    <p class="brands__text_title">
+                        Работаем со <span class="focused">всеми марками и моделями</span> бытовой техники 
+                    </p>
+                    <p class="brands__text_part">
+                        Bosch, Siemens, Neff, Gaggenau, AEG, Electrolux, Zanussi и любые другие.
+                        Наши специалисты знают все особенности каждой модели и обеспечивают надежный ремонт.
+                    </p>
+                    <p class="brands__text_part">
+                        Позвоните, опишите проблему — мы приедем в удобное время и быстро вернем вашу технику в исправное состояние.
+                    </p>
+                </div>
+            </div>
+            <div class="brands__line bottom">
+                <div class="line"></div>
+            </div>
+        </section>
+        <section class="section__goods" id="goods">
+            <h2 class="goods__header">наши услуги</h2>
+            <ul class="goods">
+                {% for good in goods %}
+                    <li class="goods__item">
+                        <div class="flip-card">
+                            <div class="flip-card__inner">
+                                <!-- Лицевая сторона -->
+                                <div class="flip-card__front">
+                                    <div class="item__card">
+                                        <div class="card__image">
+                                            <img class="card__image_photo" src="{{ good.image }}" alt="{{ good.alt }}">
+                                        </div>
+                                        <div class="card__price">
+                                            <h3 class="card__title underline">{{ good.title }}</h2>
+                                            <p class="card__price_text">Стоимость от {{ good.price }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Обратная сторона -->
+                                <div class="flip-card__back">
+                                    <div class="item__card">
+                                        <ul class="card__info">
+                                            {% for part in good.info %}
+                                                <li class="card__info_part">
+                                                    <p class="card__info_part_text">
+                                                        {{ part }}
+                                                    </p>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </a>
-                </ul>
-            {% endfor %}
-        </li>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <!-- <section class="section__callback" id="callback">
+            <div class="callback__content">
+                <form class="callback__form"></form>
+                <div class="callback__info">
+                    <h2 class="callback__header"></h2>
+                    <address class="callback__contacts"></address>
+                </div>
+            </div>
+        </section> -->
     </main>
     {% endblock content %}
 </body>
