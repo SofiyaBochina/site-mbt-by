@@ -152,7 +152,7 @@
 
 @media (max-width: 900px) {
     .header__title_text {
-        font-size: 19px;
+        font-size: 17px;
     }
 
     .header__nav {
@@ -170,6 +170,10 @@
 
     .header__nav.open {
         display: flex;
+    }
+
+    .logo {
+        height: 45px;
     }
 
     .burger {
